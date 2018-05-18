@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mira MOOC</title>
+ 
+  <style>
+    .navbar-default .navbar-nav > li > a.btn {
+      color: #ffffff;
+    }
+    .navbar-default .navbar-nav > li > a.btn:hover {
+      background-color:#e7e7e7 ;
+      color: #555;
+    }
+    .navbar-default .navbar-nav > li > a {
+      color: #777;
+    }
+  </style>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" style="text-decoration:none; font-size: x-large " href="#">ITI M00C</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <% if current_user.present? %>
+
+            <li class="active"><%= link_to 'Courses', courses_path, method: "GET" %><span class="sr-only">(current)</span></li>
+              <li><%= link_to 'Lectures', lectures_path, method: "GET" %></li>
+                <% end %>
+          </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user.present? %>
+
+      <li>
+              <a href="<%= edit_user_registration_path %>" class="btn btn-primary navbar-btn">Edit profile</a>
+          </li>
+          <li>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: "DELETE", class: "btn btn-danger navbar-btn" %>
+          </li>
+        <% else %>
+          <li>
+              <a href="<%= new_user_session_path %>" class="btn btn-primary navbar-btn">Sign In</a>
+          </li>
+          <li>
+            <a href="<%= new_user_registration_path %>" class="btn btn-success navbar-btn">Sign Up</a>
+          </li>
+          <li>
+            <a href="<%= new_admin_user_session_path %>" class="btn btn-primary navbar-btn">Admin?</a>
+          </li>
+        <% end %>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
+  <%= yield %>
+</div>
+</body>
+</html>

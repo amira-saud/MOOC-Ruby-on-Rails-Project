@@ -11,17 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-
+  <%= form_for lecture do |f| %>
   <div class="field">
     <%= form.label :course_id %>
     <%= form.number_field :course_id %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
   </div>
+ 
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :img %>
+  </div>
+ 
+  <%= f.submit %>
+<% end %>
+
+
 <% end %>

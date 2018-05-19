@@ -69,3 +69,5 @@ gem 'cancan'
 gem 'ckeditor_rails'
 gem 'commontator'
 
+
+gem 'slim-rails', '3.1.1'

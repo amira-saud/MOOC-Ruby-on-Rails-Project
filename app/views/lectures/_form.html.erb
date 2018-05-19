@@ -12,9 +12,9 @@
   <% end %>
 
   <%= form_for lecture do |f| %>
-  <div class="field">
-    <%= form.label :course_id %>
-    <%= form.number_field :course_id %>
+    <div class="field">
+    <%= f.label :course_id %><br>
+     <%= f.collection_select :course_id, Course.all, :id, :title %>
   </div>
 
   <div>
@@ -23,10 +23,10 @@
   </div>
  
   <div>
-    <%= f.label :image %>
-    <%= f.file_field :img %>
+ <%= f.label :attachment %><br>
+  <%= f.file_field :attachment_url %>
   </div>
- 
+
   <%= f.submit %>
 <% end %>
 

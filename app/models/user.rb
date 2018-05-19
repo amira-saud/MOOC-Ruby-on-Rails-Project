@@ -4,6 +4,5 @@ class User < ApplicationRecord
   mount_uploader :img, ImgUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  
+  acts_as_commontator
 end

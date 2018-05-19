@@ -22,5 +22,10 @@
   <%= @lecture.get_downvotes.size %>
 <% end %>
 <br>
+<p>
+<%= commontator_thread(@lecture) %>
+</p>
+<br>
 <%= link_to 'Edit', edit_lecture_path(@lecture) %> |
 <%= link_to 'Back', lectures_path %>
+

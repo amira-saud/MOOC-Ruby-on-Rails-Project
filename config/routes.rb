@@ -14,4 +14,5 @@ Rails.application.routes.draw do
       put "dislike", to: "lectures#downvote"
     end
   end
+  mount Commontator::Engine => '/commontator'
 end

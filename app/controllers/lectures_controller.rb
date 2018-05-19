@@ -1,5 +1,7 @@
 class LecturesController < InheritedResources::Base
-
+  def index
+    @lectures = Lecture.all
+  end
   def upvote 
     @lecture = Lecture.find(params[:id])
     @lecture.upvote_by current_user

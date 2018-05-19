@@ -67,4 +67,5 @@ gem 'acts_as_votable'
 gem 'activeadmin'
 gem 'cancan'
 gem 'ckeditor_rails'
+gem 'commontator'
 

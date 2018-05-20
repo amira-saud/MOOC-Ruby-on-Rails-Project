@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #mount Ckeditor::Engine => '/ckeditor'
   resources :lectures
   resources :courses
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -12,7 +13,9 @@ Rails.application.routes.draw do
     member do
       put "like", to: "lectures#upvote"
       put "dislike", to: "lectures#downvote"
+      post "spam"  =>"lectures#spam"
     end
   end
   mount Commontator::Engine => '/commontator'
+  mount Ckeditor::Engine => '/ckeditor'
 end

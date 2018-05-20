@@ -1,4 +1,12 @@
 class LecturesController < InheritedResources::Base
+  def spam
+    lecture = Lecture.find(params[:id])
+    
+     unless current_user.lectures.include?(lecture)
+      current_user.lectures << lecture
+     end
+  end
+
   def index
     @lectures = Lecture.all
   end

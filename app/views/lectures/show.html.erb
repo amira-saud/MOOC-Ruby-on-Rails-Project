@@ -4,7 +4,7 @@
 </p>
 <p>
   <strong>Content:</strong>
-  <%= @lecture.content %>
+  <%= @lecture.content.html_safe %>
 </p>
 
 
@@ -13,6 +13,8 @@
   <strong>Attachment:</strong>
  <%= link_to "Download Attachment", @lecture.attachment_url if @lecture.attachment?  %>
 </p>
+
+  <p><%= link_to 'Spam', spam_lecture_path(@lecture), method: :post %></p>
 
 <%= link_to like_lecture_path(@lecture), method: :put do %>
   Like
